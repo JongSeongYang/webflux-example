@@ -22,4 +22,11 @@ public class ExampleRouter {
                 .route(RequestPredicates.GET("/hello/{name}")
                         .and(RequestPredicates.accept(MediaType.TEXT_PLAIN)), exampleHandler::hello);
     }
+
+    @Bean
+    public RouterFunction<ServerResponse> detailRoute() {
+        return RouterFunctions
+                .route(RequestPredicates.POST("/detail")
+                        .and(RequestPredicates.accept(MediaType.TEXT_PLAIN)), exampleHandler::detail);
+    }
 }
